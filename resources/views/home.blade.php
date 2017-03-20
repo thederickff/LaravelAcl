@@ -10,7 +10,7 @@
 
             <b>Author: </b> {{$post->user->name}}
 
-            @can('edit-post', $post)
+            @can('editPost', $post)
                 <a href="{{route('post.edit', ['id' => $post->id])}}">Edit</a>
             @endcan
             <hr>
