@@ -8,6 +8,8 @@
 
 
             <b>Author: </b> {{$post->user->name}}
+
+            <a href="{{route('post.edit', ['id' => $post->id])}}">Edit</a>
             <hr>
         @empty
             Nenhum Post cadastrado

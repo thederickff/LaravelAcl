@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 
 class HomeController extends Controller
 {
@@ -30,5 +32,19 @@ class HomeController extends Controller
         $posts = $this->post->paginate(5);
 
         return view('home', compact('posts'));
+    }
+
+    public function edit($id){
+
+
+        $post = $this->post->find($id);
+
+        //$this->authorize('edit-post', $post);
+
+        if(Gate::denies('edit-post', $post)){
+            abort(403, 'Unauthorized');
+        }
+
+        return view('post.edit', compact('post'));
     }
 }
