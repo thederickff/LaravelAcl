@@ -20,3 +20,4 @@ Auth::routes();
 Route::get('/home', 'HomeController@index');
 
 Route::get('post/edit/{id}', ['as'=> 'post.edit', 'uses' => 'HomeController@edit']);
+Route::get('roles-permissions', ['as'=> 'roles.permissions', 'uses' => 'HomeController@rolesPermissions']);
