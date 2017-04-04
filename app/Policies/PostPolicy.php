@@ -21,6 +21,13 @@ class PostPolicy
     }
 
     public function editPost(User $user, Post $post){
-        return $user->id == $post->user->id;
+        foreach($user->roles as $role){
+            foreach($role->permissions as $permission){
+                if($permission->id == 2){
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 }
