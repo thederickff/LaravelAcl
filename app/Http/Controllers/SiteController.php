@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 
-class HomeController extends Controller
+class SiteController extends Controller
 {
 
     protected $post;
@@ -29,9 +29,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $posts = $this->post->paginate(5);
+        
 
-        return view('home', compact('posts'));
+        return view('portal.home.index');
     }
 
     public function edit($id){

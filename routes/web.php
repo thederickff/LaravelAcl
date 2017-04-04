@@ -11,13 +11,18 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::group(['prefix' => 'painel'], function(){
+     
+    //PostController
+   
+    //PermissionController
+   
+    //RoleController
+    
+     //PainelController
+    Route::get('/', 'Painel\PainelController@index');
 });
 
+
 Auth::routes();
-
-Route::get('/home', 'HomeController@index');
-
-Route::get('post/edit/{id}', ['as'=> 'post.edit', 'uses' => 'HomeController@edit']);
-Route::get('roles-permissions', ['as'=> 'roles.permissions', 'uses' => 'HomeController@rolesPermissions']);
+Route::get('/', 'SiteController@index');
