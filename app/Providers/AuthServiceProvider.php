@@ -32,8 +32,8 @@ class AuthServiceProvider extends ServiceProvider
         $permissions = Permission::with('roles')->get();
 
         foreach ($permissions as $permission) {
-          $gate->define($permission->name, function(User $user, Post $post){
-            return $user->id == $post->user_id;
+          $gate->define($permission->name, function(User $user) use ($permission){
+            return $user->hasPermission($permission);
           });
         }
     }
