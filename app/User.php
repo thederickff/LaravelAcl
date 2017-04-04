@@ -31,8 +31,12 @@ class User extends Authenticatable
     public function posts(){
         return $this->hasMany(Post::class);
     }
+    public function roles(){
+      return $this->belongsToMany(\App\Role::class);
+    }
 
     public function hasPermission(Permission $permission){
+      //dd($this->roles);
       return $this->hasAnyRoles($permission->roles);
     }
     public function hasAnyRoles($roles){
@@ -42,7 +46,7 @@ class User extends Authenticatable
           }
         }
 
-        return $this->roles->contains('name', $roles);
+        return false;
     }
 
 }

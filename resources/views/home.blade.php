@@ -3,15 +3,15 @@
 @section('content')
     <div class="container">
         @forelse($posts as $post)
+            @can('view_post', $post)
+                <h1>{{$post->title}}</h1>
+                <p>{{$post->description}}</p>
 
-            <h1>{{$post->title}}</h1>
-            <p>{{$post->description}}</p>
+
+                <b>Author: </b> {{$post->user->name}}
 
 
-            <b>Author: </b> {{$post->user->name}}
-
-            @can('editPost', $post)
-                <a href="{{route('post.edit', ['id' => $post->id])}}">Edit</a>
+                    <a href="{{route('post.edit', ['id' => $post->id])}}">Edit</a>
             @endcan
             <hr>
         @empty
