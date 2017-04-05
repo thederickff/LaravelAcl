@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Portal;
 
 use App\Post;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
@@ -19,7 +20,7 @@ class SiteController extends Controller
     public function __construct(Post $p)
     {
         $this->post = $p;
-        $this->middleware('auth');
+
     }
 
     /**
