@@ -20,27 +20,27 @@
 
 <div class="container">
     <h1 class="title">
-        Listagem dos Posts
+        Permissions
     </h1>
 
     <table class="table table-hover">
         <tr>
             <th>Id</th>
-            <th>Titulo</th>
-            <th>Descricao</th>
+            <th>Name</th>
+            <th>Label</th>
             <th width="100px">Ações</th>
         </tr>
 
-        @forelse($posts as $post)
+        @forelse($permissions as $permission)
         <tr>
-            <td>{{$post->id}}</td>
-            <td>{{$post->title}}</td>
-            <td>{{$post->description}}</td>
+            <td>{{$permission->id}}</td>
+            <td>{{$permission->name}}</td>
+            <td>{{$permission->label}}</td>
             <td>
-                <a href="{{route('painel.posts.edit', ['id' => $post->id])}}" class="edit">
+                <a href="{{route('painel.permissions.edit', ['id' => $permission->id])}}" class="edit">
                     <i class="fa fa-pencil-square-o"></i>
                 </a>
-                <a href="{{route('painel.posts.delete', ['id' => $post->id])}}" class="delete">
+                <a href="{{route('painel.permissions.delete', ['id' => $permission->id])}}" class="delete">
                     <i class="fa fa-trash"></i>
                 </a>
             </td>
@@ -52,7 +52,7 @@
     </table>
 
 
-   {{$posts->render()}}
+   {{$permissions->render()}}
 </div>
 
 @endsection

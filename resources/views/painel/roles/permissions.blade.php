@@ -20,27 +20,24 @@
 
 <div class="container">
     <h1 class="title">
-        Listagem dos Posts
+        <b>{{$role->name}}</b> Permissions
     </h1>
 
     <table class="table table-hover">
         <tr>
             <th>Id</th>
-            <th>Titulo</th>
-            <th>Descricao</th>
-            <th width="100px">Ações</th>
+            <th>Name</th>
+            <th>Label</th>
+            <th>Ações</th>
         </tr>
 
-        @forelse($posts as $post)
+        @forelse($permissions as $permissions)
         <tr>
-            <td>{{$post->id}}</td>
-            <td>{{$post->title}}</td>
-            <td>{{$post->description}}</td>
+            <td>{{$permissions->id}}</td>
+            <td>{{$permissions->name}}</td>
+            <td>{{$permissions->label}}</td>
             <td>
-                <a href="{{route('painel.posts.edit', ['id' => $post->id])}}" class="edit">
-                    <i class="fa fa-pencil-square-o"></i>
-                </a>
-                <a href="{{route('painel.posts.delete', ['id' => $post->id])}}" class="delete">
+                <a href="{{route('painel.permissions.delete', ['id' => $permissions->id])}}" class="delete">
                     <i class="fa fa-trash"></i>
                 </a>
             </td>
@@ -50,9 +47,6 @@
         @endforelse
 
     </table>
-
-
-   {{$posts->render()}}
 </div>
 
 @endsection
