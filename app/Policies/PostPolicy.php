@@ -19,7 +19,10 @@ class PostPolicy
     {
         //
     }
-
+    public function viewPost(User $user, Post $post){
+        
+        dd($user);
+    }
     public function editPost(User $user, Post $post){
         foreach($user->roles as $role){
             foreach($role->permissions as $permission){
@@ -28,6 +31,6 @@ class PostPolicy
                 }
             }
         }
-        return false;
+        return true;
     }
 }

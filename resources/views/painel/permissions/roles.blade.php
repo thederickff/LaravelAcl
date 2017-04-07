@@ -20,7 +20,7 @@
 
 <div class="container">
     <h1 class="title">
-       Roles
+        <b>{{$permission->name}}</b> Roles
     </h1>
 
     <table class="table table-hover">
@@ -31,19 +31,13 @@
             <th>Ações</th>
         </tr>
 
-        @forelse($roles as $role)
+        @forelse($roles as $roles)
         <tr>
-            <td>{{$role->id}}</td>
-            <td>{{$role->name}}</td>
-            <td>{{$role->label}}</td>
+            <td>{{$roles->id}}</td>
+            <td>{{$roles->name}}</td>
+            <td>{{$roles->label}}</td>
             <td>
-                <a href="{{route('painel.roles.permissions', ['id' => $role->id])}}" class="permission">
-                     <i class="fa fa-unlock"></i>
-                </a>
-                <a href="{{route('painel.roles.edit', ['id' => $role->id])}}" class="edit">
-                    <i class="fa fa-pencil-square-o"></i>
-                </a>
-                <a href="{{route('painel.roles.delete', ['id' => $role->id])}}" class="delete">
+                <a href="{{route('painel.roles.delete', ['id' => $roles->id])}}" class="delete">
                     <i class="fa fa-trash"></i>
                 </a>
             </td>
@@ -53,9 +47,6 @@
         @endforelse
 
     </table>
-
-
-   {{$roles->render()}}
 </div>
 
 @endsection

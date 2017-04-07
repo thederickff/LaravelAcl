@@ -42,7 +42,7 @@ class SiteController extends Controller
 
         //$this->authorize('edit-post', $post);
 
-        if(Gate::denies('edit-post', $post)){
+        if(Gate::denies('editPost', $post)){
             abort(403, 'Unauthorized');
         }
 

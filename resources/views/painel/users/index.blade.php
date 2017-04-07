@@ -28,7 +28,7 @@
             <th>Id</th>
             <th>Name</th>
             <th>Email</th>
-            <th width="100px">Ações</th>
+            <th>Ações</th>
         </tr>
 
         @forelse($users as $user)
@@ -37,6 +37,9 @@
             <td>{{$user->name}}</td>
             <td>{{$user->email}}</td>
             <td>
+                <a href="{{route('painel.users.roles', ['id' => $user->id])}}" class="roles">
+                     <i class="fa fa-unlock"></i>
+                </a>
                 <a href="{{route('painel.users.edit', ['id' => $user->id])}}" class="edit">
                     <i class="fa fa-pencil-square-o"></i>
                 </a>

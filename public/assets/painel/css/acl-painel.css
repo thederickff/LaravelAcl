@@ -67,7 +67,20 @@ ul.relatorios li h1{
     font-size: 16px;
 }
 
-
+.permission {
+    background: #395F5D;
+    padding: 8px;
+    color: #FFF;
+    border-radius: 4px;
+    margin: 4px;
+}
+.roles {
+    background: #F9556D;
+    padding: 8px;
+    color: #FFF;
+    border-radius: 4px;
+    margin: 4px;
+}
 .edit{
     background: #5A1F17;
     padding: 8px;

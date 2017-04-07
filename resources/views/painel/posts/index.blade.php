@@ -31,6 +31,7 @@
             <th width="100px">Ações</th>
         </tr>
 
+       @can('view_post')
         @forelse($posts as $post)
         <tr>
             <td>{{$post->id}}</td>
@@ -48,6 +49,8 @@
         @empty
         <tr><td colspan="90"><p>Nenhum Resultado</p></td></tr>
         @endforelse
+       
+       @endcan
 
     </table>
 
