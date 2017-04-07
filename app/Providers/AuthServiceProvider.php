@@ -17,7 +17,7 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-       Post::class => PostPolicy::class,
+       //Post::class => PostPolicy::class,
     ];
 
     /**
@@ -28,22 +28,22 @@ class AuthServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerPolicies();
-      //  //
-        /*$permissions = Permission::with('roles')->get();
+     
+        $permissions = Permission::with('roles')->get();
         
         foreach ($permissions as $permission) {
           Gate::define($permission->name, function(User $user) use ($permission){
               
             return $user->hasPermission($permission);
           });
-        }*/
+        }
         
-        /*Gate::before(function(User $user, $ability){
+        Gate::before(function(User $user, $ability){
             
         if($user->hasAnyRoles('adm')){
             return true;
         }
         });
-            */
+            
 }
 }
